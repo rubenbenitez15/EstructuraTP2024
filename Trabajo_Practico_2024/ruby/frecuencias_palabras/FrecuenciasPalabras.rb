@@ -62,6 +62,7 @@ if __FILE__ == $PROGRAM_NAME
   tiempo_ejecucion = Benchmark.realtime do
     contar_palabras(nombre_archivo, CONECTORES_PRONOMBRES)
   end
+  tiempo_ejecucion = tiempo_ejecucion*1000
 
-  puts "Tiempo de ejecución: #{tiempo_ejecucion.round(8)} segundos"
+  puts "Tiempo de ejecución: #{tiempo_ejecucion.round(8)} milisegundos"
 end
