@@ -14,12 +14,15 @@ public class MultiplicacionMatrices {
         Scanner scanner = new Scanner(System.in);
 
         // Obtener matrices de entrada
-        int[][] matriz1 = obtenerMatriz("Ingrese 'm' para leer la matriz 1 desde un archivo o 'a' para generarla aleatoriamente: ", scanner);
-        int[][] matriz2 = obtenerMatriz("Ingrese 'm' para leer la matriz 2 desde un archivo o 'a' para generarla aleatoriamente: ", scanner);
+        int[][] matriz1 = obtenerMatriz(
+                "Ingrese 'm' para leer la matriz 1 desde un archivo o 'a' para generarla aleatoriamente: ", scanner);
+        int[][] matriz2 = obtenerMatriz(
+                "Ingrese 'm' para leer la matriz 2 desde un archivo o 'a' para generarla aleatoriamente: ", scanner);
 
         // Verificar si las matrices se pueden multiplicar
         if (matriz1[0].length != matriz2.length) {
-            System.out.println("No se pueden multiplicar las matrices. El número de columnas de la primera matriz debe ser igual al número de filas de la segunda matriz.");
+            System.out.println(
+                    "No se pueden multiplicar las matrices. El número de columnas de la primera matriz debe ser igual al número de filas de la segunda matriz.");
             return;
         }
 
@@ -47,7 +50,7 @@ public class MultiplicacionMatrices {
 
             if (opcion.equals("m")) {
                 // Leer matriz desde archivo
-                System.out.print("Ingrese la ruta del archivo: ");
+                System.out.print("Ingrese el nombre del archivo: ");
                 String rutaArchivo = scanner.nextLine();
                 return leerMatrizDesdeArchivo(rutaArchivo);
             } else if (opcion.equals("a")) {
@@ -68,21 +71,28 @@ public class MultiplicacionMatrices {
 
     // Lee una matriz desde un archivo CSV.
     private static int[][] leerMatrizDesdeArchivo(String rutaArchivo) {
-        List<int[]> filas = new ArrayList<>();
+        List<int[]> filas = new ArrayList<>(); // Lista para almacenar las filas de la matriz
+    
         try (BufferedReader br = new BufferedReader(new FileReader(rutaArchivo))) {
             String linea;
+            
+            // Leer cada línea del archivo
             while ((linea = br.readLine()) != null) {
-                String[] valores = linea.split(",");
-                int[] fila = Arrays.stream(valores)
-                        .mapToInt(Integer::parseInt) // Cambiar a mapToInt para enteros
-                        .toArray();
-                filas.add(fila);
+                String[] valores = linea.split(","); // Separar la línea por comas para obtener los valores
+    
+                // Convertir los valores de String a int utilizando mapToInt y toArray
+                int[] fila = Arrays.stream(valores).mapToInt(Integer::parseInt).toArray();  // Convertir cada valor a entero. Convertir el Stream a un array de enteros
+    
+                filas.add(fila); // Agregar la fila convertida a la lista de filas
             }
         } catch (IOException e) {
+            // Manejar el error si ocurre al leer el archivo
             System.err.println("Error al leer el archivo: " + e.getMessage());
-            System.exit(1);
+            System.exit(1); // Terminar el programa con código de error 1
         }
-        return filas.toArray(new int[0][]); // Cambiar a int[][]
+    
+        // Convertir la lista de filas a un array bidimensional de enteros y devolverlo
+        return filas.toArray(new int[0][]); // Devolver la matriz leída desde el archivo
     }
 
     // Genera una matriz aleatoria con las dimensiones especificadas.
@@ -126,14 +136,15 @@ public class MultiplicacionMatrices {
         try (FileWriter writer = new FileWriter(rutaArchivo)) {
             for (int[] fila : matriz) {
                 for (int j = 0; j < fila.length; j++) {
-                    writer.write(String.valueOf(fila[j]));
+                    writer.write(String.valueOf(fila[j])); // Escribir el elemento como String
                     if (j < fila.length - 1) {
-                        writer.write(",");
+                        writer.write(","); // Agregar coma si no es el último elemento de la fila
                     }
                 }
-                writer.write("\n");
+                writer.write("\n"); // Agregar nueva línea al final de cada fila
             }
         } catch (IOException e) {
+            // Manejar el error si ocurre al escribir en el archivo
             System.err.println("Error al guardar la matriz en el archivo: " + e.getMessage());
         }
     }

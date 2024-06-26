@@ -94,7 +94,7 @@ void guardarMatrizEnArchivo(const vector<vector<int>>& matriz, string nombreArch
 
 int main() {
     int opcion;
-    cout << "Seleccione una opción:\n";
+    cout << "Seleccione una opcion:\n";
     cout << "1. Leer matrices de archivos\n";
     cout << "2. Generar matrices aleatorias\n";
     cin >> opcion;
@@ -112,18 +112,18 @@ int main() {
         matrizB = leerMatrizDeArchivo(archivoMatrizB);
     } else if (opcion == 2) {
         int filasA, columnasA, filasB, columnasB;
-        cout << "Ingrese el número de filas de la matriz A: ";
+        cout << "Ingrese el numero de filas de la matriz A: ";
         cin >> filasA;
-        cout << "Ingrese el número de columnas de la matriz A: ";
+        cout << "Ingrese el numero de columnas de la matriz A: ";
         cin >> columnasA;
-        cout << "Ingrese el número de filas de la matriz B: ";
+        cout << "Ingrese el numero de filas de la matriz B: ";
         cin >> filasB;
-        cout << "Ingrese el número de columnas de la matriz B: ";
+        cout << "Ingrese el numero de columnas de la matriz B: ";
         cin >> columnasB;
 
         // Verificar si las matrices se pueden multiplicar
         if (columnasA != filasB) {
-            cerr << "Error: El número de columnas de la matriz A debe ser igual al número de filas de la matriz B." << endl;
+            cerr << "Error: El numero de columnas de la matriz A debe ser igual al numero de filas de la matriz B." << endl;
             return 1;
         }
 

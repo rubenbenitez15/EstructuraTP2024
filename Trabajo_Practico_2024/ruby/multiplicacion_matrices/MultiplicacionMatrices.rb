@@ -58,11 +58,11 @@ def leer_matriz(nombre_archivo)
   
   # Obtener las matrices de entrada
   if opcion == 1
-    puts "Ingrese el nombre del archivo de la primera matriz (.csv):"
+    puts "Ingrese el nombre del archivo de la primera matriz:"
     nombre_archivo_matriz1 = gets.chomp
     matriz1 = leer_matriz(nombre_archivo_matriz1)
   
-    puts "Ingrese el nombre del archivo de la segunda matriz (.csv):"
+    puts "Ingrese el nombre del archivo de la segunda matriz:"
     nombre_archivo_matriz2 = gets.chomp
     matriz2 = leer_matriz(nombre_archivo_matriz2)
   elsif opcion == 2
