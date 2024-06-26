@@ -95,6 +95,8 @@ if __name__ == '__main__':
         exit()
 
     if matriz1 is not None and matriz2 is not None:
+        #Imprime las matrices a multiplicar
+
         print("Matriz 1:")
         for fila in matriz1:
             print(fila)
@@ -103,6 +105,7 @@ if __name__ == '__main__':
             print(fila)
 
         resultado = multiplicar_matrices(matriz1, matriz2)
+        #Imprime el resultado de las matrices multiplicadas
 
         if resultado is not None:
             print("\nResultado:")

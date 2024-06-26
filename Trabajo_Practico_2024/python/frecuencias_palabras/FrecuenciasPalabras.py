@@ -50,4 +50,5 @@ if __name__ == "__main__":
     
     end_time = time.time()  # Finalizar el conteo de tiempo de ejecución
     calc_time = end_time - start_time  # Calcular el tiempo transcurrido
-    print(f"Tiempo de ejecución: {calc_time} segundos")  # Mostrar el tiempo de ejecución total
+    calc_time = calc_time*1000
+    print(f"Tiempo de ejecución: {calc_time} milisegundos")  # Mostrar el tiempo de ejecución total
