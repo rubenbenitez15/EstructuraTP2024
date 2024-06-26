@@ -43,7 +43,7 @@ def contar_palabras(nombre_archivo, conectores_pronombres)
     palabras_ordenadas = frecuencia_palabras.sort_by { |palabra, conteo| -conteo }
 
     # Mostrar las 10 palabras más frecuentes
-    puts "Las 10 palabras más frecuentes en '#{nombre_archivo}' (excluyendo conectores y pronombres) son:"
+    puts "Las 10 palabras más frecuentes en '#{nombre_archivo}' son:"
     palabras_ordenadas[0..9].each do |palabra, conteo|
       puts "- #{palabra}: #{conteo}"
     end

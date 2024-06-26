@@ -39,7 +39,6 @@ function contarPalabras() {
       // Función para limpiar y contar las palabras
       const limpiarYContarPalabras = (texto) => {
         return texto.toLowerCase()
-          .replace(/[^a-záéíóúüñ\s]/g, '') // Elimina caracteres no deseados
           .split(/\s+/) // Divide por espacios en blanco para obtener palabras
           .filter(palabra => palabra && !conectores_pronombres.includes(palabra)); // Filtra palabras vacías y conectores/pronombres
       };
@@ -52,9 +51,7 @@ function contarPalabras() {
       });
 
       // Ordenar y mostrar las 10 palabras más frecuentes
-      const palabrasOrdenadas = Object.entries(frecuenciaPalabras)
-        .sort((a, b) => b[1] - a[1])
-        .slice(0, 10);
+      const palabrasOrdenadas = Object.entries(frecuenciaPalabras).sort((a, b) => b[1] - a[1]).slice(0, 10);
 
       console.log("Palabras más frecuentes:");
       palabrasOrdenadas.forEach(([palabra, frecuencia]) => {
